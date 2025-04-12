@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTDownloader - Download YouTube Videos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <h1>YTDownloader</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Download YouTube Videos</h2>
+                    <p>Get high-quality videos from YouTube with our powerful downloader tool.</p>
+                    
+                    <div class="url-form">
+                        <form action="/" method="POST">
+                            <div class="input-group">
+                                <i class="fab fa-youtube input-icon"></i>
+                                <input type="url" name="url" placeholder="Paste YouTube URL here..." required>
+                                <button type="submit">
+                                    <i class="fas fa-search"></i> Get Formats
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-bolt"></i>
+                            <span>Fast Download</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-video"></i>
+                            <span>HD Quality</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-volume-up"></i>
+                            <span>Audio Options</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="device-mockup">
+                        <div class="device-frame">
+                            <div class="device-screen">
+                                <div class="mockup-content">
+                                    <div class="mockup-search-bar"></div>
+                                    <div class="mockup-results">
+                                        <div class="mockup-result"></div>
+                                        <div class="mockup-result"></div>
+                                        <div class="mockup-result"></div>
+                                    </div>
+                                    <div class="mockup-download-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="how-it-works">
+                <h3>How It Works</h3>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h4>Paste URL</h4>
+                        <p>Copy and paste the YouTube video URL into the search box</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-list"></i>
+                        </div>
+                        <h4>Select Format</h4>
+                        <p>Choose your preferred video and audio quality</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h4>Download</h4>
+                        <p>Click download and save the file to your device</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fab fa-youtube"></i>
+                    <span>YTDownloader</span>
+                </div>
+                <p>&copy; 2025 YTDownloader. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTDownloader - Select Format</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <h1>YTDownloader</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div class="format-selection">
+                <div class="video-info">
+                    <h2>Select Download Format</h2>
+                    <p class="url-display">{{ url }}</p>
+                </div>
+                
+                <form action="/download" method="POST" id="download-form">
+                    <input type="hidden" name="url" value="{{ url }}">
+                    
+                    <div class="formats-container">
+                        <div class="format-section">
+                            <h3><i class="fas fa-video"></i> Video Formats</h3>
+                            <div class="format-list">
+                                {% for format in video_formats %}
+                                <div class="format-item">
+                                    <label class="radio-container">
+                                        <input type="radio" name="video_format_id" value="{{ format.format_id }}" 
+                                               {% if loop.first %}checked{% endif %}>
+                                        <span class="checkmark"></span>
+                                        <div class="format-details">
+                                            <span class="format-quality">{{ format.height }}p</span>
+                                            <span class="format-ext">.{{ format.ext }}</span>
+                                            <span class="format-size">{{ format.filesize }} MB</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <div class="format-section">
+                            <h3><i class="fas fa-music"></i> Audio Formats</h3>
+                            <div class="format-list">
+                                {% for format in audio_formats %}
+                                <div class="format-item">
+                                    <label class="radio-container">
+                                        <input type="radio" name="audio_format_id" value="{{ format.format_id }}"
+                                               {% if loop.first %}checked{% endif %}>
+                                        <span class="checkmark"></span>
+                                        <div class="format-details">
+                                            <span class="format-quality">{{ format.abr }} kbps</span>
+                                            <span class="format-ext">.{{ format.ext }}</span>
+                                            <span class="format-size">{{ format.filesize }} MB</span>
+                                        </div>
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="download-actions">
+                        <a href="/" class="back-button"><i class="fas fa-arrow-left"></i> Back</a>
+                        <button type="submit" class="download-button">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="loading-overlay" id="loading-overlay">
+                <div class="loading-spinner"></div>
+                <p>Preparing your download...</p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fab fa-youtube"></i>
+                    <span>YTDownloader</span>
+                </div>
+                <p>&copy; 2025 YTDownloader. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('download-form').addEventListener('submit', function() {
+            document.getElementById('loading-overlay').style.display = 'flex';
+        });
+    </script>
+</body>
+</html>
